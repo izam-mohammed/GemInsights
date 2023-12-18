@@ -1,0 +1,13 @@
+google-generativeai
+pandas
+numpy
+matplotlib
+seaborn
+python-box
+pexpect
+streamlit
+joblib
+ensure
+dataframe_image
+jinja2
+-e .
