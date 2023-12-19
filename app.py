@@ -1,12 +1,28 @@
 import streamlit as st
+import pandas as pd
 
+dataframe = None
 st.title("GemInsights")
-file = st.file_uploader("Pick a dataframe", type=["csv"])
-text_input = st.text_input(
-        "Enter some text 👇",
+file = st.file_uploader("Pick a dataframe", type=["csv"], accept_multiple_files=False)
+
+
+if file is not None:
+    dataframe = pd.read_csv(file)
+    st.write(dataframe.head())
+
+if file is not None:
+    text_input = st.text_input(
+        "Enter something about the data 👇",
         label_visibility="visible",
         disabled=False,
-        placeholder="enter something", 
+        placeholder="eg:- This is a sales dataframe", 
+    )
+
+    option = st.selectbox(
+    "Which is the target column?",
+    tuple(list(dataframe.columns)),
+    index=None,
+    placeholder="Select contact method...",
     )
 
 if st.button("Get Insights", type="primary"):
