@@ -24,6 +24,7 @@ class DataIngestionPredictionPipeline:
         data_ingestion_config = config.get_data_ingestion_config()
         data_ingestion = DataIngestion(config=data_ingestion_config)
         data_ingestion.load_data()
+        data_ingestion.load_info()
         data_ingestion.store_data()
 
 

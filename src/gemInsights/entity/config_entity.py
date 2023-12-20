@@ -6,4 +6,5 @@ from pathlib import Path
 class DataIngestionConfig:
     root_dir: Path
     source_data_file: Path
+    source_info_file: Path
     local_data_name: str

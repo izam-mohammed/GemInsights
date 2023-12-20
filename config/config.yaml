@@ -3,4 +3,5 @@ artifacts_root: artifacts
 data_ingestion:
   root_dir: artifacts/data_ingestion
   source_data_file: streamlit_files/data.csv
+  source_info_file: streamlit_files/additional_data.json
   local_data_name: data.csv
