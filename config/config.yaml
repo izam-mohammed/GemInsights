@@ -1,1 +1,6 @@
 artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_data_file: streamlit_files/data.csv
+  local_data_name: data.csv
