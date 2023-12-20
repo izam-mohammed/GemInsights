@@ -5,3 +5,9 @@ data_ingestion:
   source_data_file: streamlit_files/data.csv
   source_info_file: streamlit_files/additional_data.json
   local_data_name: data.csv
+
+data_visualization:
+  root_dir: artifacts/data_visualization
+  data_file_path: artifacts/data_ingestion/data.csv
+  visualization_folder: newimages
+  info_file_path: artifacts/data_ingestion/data_info.json
