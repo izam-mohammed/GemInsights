@@ -40,7 +40,6 @@ class ConfigurationManager:
         data_visualization_config = DataVisualizationConfig(
             root_dir=config.root_dir,
             data_file_path=config.data_file_path,
-            visualization_folder=config.visualization_folder,
             info_file_path=config.info_file_path,
         )
 

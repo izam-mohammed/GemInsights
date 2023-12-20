@@ -9,5 +9,10 @@ data_ingestion:
 data_visualization:
   root_dir: artifacts/data_visualization
   data_file_path: artifacts/data_ingestion/data.csv
-  visualization_folder: newimages
   info_file_path: artifacts/data_ingestion/data_info.json
+
+prompt_generation:
+  root_dir: artifacts/prompt_generation
+  data_path: artifacts/data_ingestion/data.csv
+  visualization_path: artifacts/data_visualization/
+  data_information_file: artifacts/data_ingestion/data_info.json

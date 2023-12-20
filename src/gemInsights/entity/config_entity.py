@@ -13,5 +13,4 @@ class DataIngestionConfig:
 class DataVisualizationConfig:
     root_dir: Path
     data_file_path: Path
-    visualization_folder: Path
     info_file_path: Path
