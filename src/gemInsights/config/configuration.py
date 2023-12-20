@@ -1,7 +1,8 @@
 from gemInsights.constants import *
 from gemInsights.utils.common import read_yaml, create_directories
 from gemInsights.entity.config_entity import (DataIngestionConfig,
-                                              DataVisualizationConfig)
+                                              DataVisualizationConfig,
+                                              PromptGenerationConfig)
 
 #udpate configuration manager
 class ConfigurationManager:
@@ -44,3 +45,17 @@ class ConfigurationManager:
         )
 
         return data_visualization_config
+    
+    def get_prompt_generation_config(self) -> PromptGenerationConfig:
+        config = self.config.prompt_generation
+        
+        create_directories([config.root_dir])
+
+        prompt_generation_config = PromptGenerationConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            visualization_path=config.visualization_path,
+            data_information_file=config.data_information_file,
+        )
+
+        return prompt_generation_config

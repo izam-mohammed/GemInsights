@@ -14,3 +14,10 @@ class DataVisualizationConfig:
     root_dir: Path
     data_file_path: Path
     info_file_path: Path
+
+@dataclass(frozen=True)
+class PromptGenerationConfig:
+    root_dir: Path
+    data_path: Path
+    visualization_path: Path
+    data_information_file: Path
