@@ -5,10 +5,11 @@ dataframe = None
 st.title("GemInsights")
 file = st.file_uploader("Pick a dataframe", type=["csv"], accept_multiple_files=False)
 
-
 if file is not None:
     dataframe = pd.read_csv(file)
+    dataframe.to_csv("artifacts/data/data.csv")
     st.write(dataframe.head())
+    st.write(f"updated a dataframe with shape {dataframe.shape}")
 
 if file is not None:
     text_input = st.text_input(
