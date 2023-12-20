@@ -8,3 +8,10 @@ class DataIngestionConfig:
     source_data_file: Path
     source_info_file: Path
     local_data_name: str
+
+@dataclass(frozen=True)
+class DataVisualizationConfig:
+    root_dir: Path
+    data_file_path: Path
+    visualization_folder: Path
+    info_file_path: Path
