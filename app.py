@@ -1,9 +1,13 @@
 import streamlit as st
 import pandas as pd
 import os
+from gemInsights.utils.common import save_json, load_json
+from pathlib import Path
+from gemInsights import logger
+from markdown import markdown
 
-if not os.listdir("artifacts/streamlit_data"):
-    os.path.join(os.getcwd(), "artifacts/streamlit_data")
+if not os.path.isdir("streamlit_files"):
+    os.makedirs(os.path.join(os.getcwd(), "streamlit_files"), exist_ok=True)
 
 dataframe = None
 st.title("GemInsights")
@@ -26,11 +30,27 @@ if file is not None:
     "Which is the target column?",
     tuple(list(dataframe.columns)),
     index=None,
-    placeholder="Select contact method...",
+    placeholder="Select one column in here",
     )
 
 if st.button("Get Insights", type="primary"):
-    st.write("here are the predictions")
-    dataframe.to_csv("artifacts/data/data.csv")
+
+    dataframe.to_csv("streamlit_files/data.csv")
+    logger.info(f"saved the data at streamlit_files/data.csv")
+
+    additional_info = {
+        "additional_info": text_input,
+        "target_col":option
+    }
+    save_json(path="streamlit_files/additional_data.json", data=additional_info)
+
+    st.write("generating insights ...")
+    # running the pipeline
+    os.system("python main.py")
+
+    response = load_json(Path("artifacts/prompting/response.json"))
+    res = markdown(response.response)
+    st.markdown(res, unsafe_allow_html=True)
+
 else:
     st.write("")
