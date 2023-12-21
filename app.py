@@ -6,15 +6,20 @@ from pathlib import Path
 from gemInsights import logger
 from markdown import markdown
 
+
 if not os.path.isdir("streamlit_files"):
     os.makedirs(os.path.join(os.getcwd(), "streamlit_files"), exist_ok=True)
 
 dataframe = None
 st.title("GemInsights")
-file = st.file_uploader("Pick a dataframe", type=["csv"], accept_multiple_files=False)
+file = st.file_uploader("Pick a dataframe", type=["csv", "xlsx"], accept_multiple_files=False)
 
 if file is not None:
-    dataframe = pd.read_csv(file)
+    _, extension = os.path.splitext(file.name)
+    if extension == ".csv":
+        dataframe = pd.read_csv(file)
+    else:
+        dataframe = pd.read_excel(file)
     st.write(dataframe.head())
     st.write(f"updated a dataframe with shape {dataframe.shape}")
 

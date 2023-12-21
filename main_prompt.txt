@@ -1,0 +1,3 @@
+Act as a data analyst. 
+Here is the complete information and visualization images of a dataset. 
+give valuable insights from the data point wise
