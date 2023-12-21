@@ -20,7 +20,7 @@ To get started with the Note Taking Website, follow these steps:
 
 2. Create a virtual environment (or modify an existing one).
    ```bash
-   conda create -n geminsights python=3  # Skip if using an existing environment.
+   conda create -n geminsights python=3.11  # Skip if using an existing environment.
    conda activate geminsights
    ```
  
@@ -29,10 +29,7 @@ To get started with the Note Taking Website, follow these steps:
    pip install -r requirements.txt
    ```
 
-4. Set the "GEMINI_API_KEY" environment variable
-```bash
-export GEMINI_API_KEY="your_gemini_api_key"
-```
+4. Set the google cloud credentials in credentials folder as cloud_credentials.json
 
 5. Run the server
    ```bash
