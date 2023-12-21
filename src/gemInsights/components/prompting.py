@@ -21,22 +21,23 @@ class Prompting:
         logger.info(f"initialized trulens with db")
 
         aiplatform.init(
-            project = self.config.project_name,
-            location= self.config.project_location,
+            project=self.config.project_name,
+            location=self.config.project_location,
         )
         logger.info(f"Google cloud project name - {self.config.project_name}")
-        
+
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = self.config.credentials
         logger.info("loaded the google cloud credentials")
 
         self.model = GenerativeModel(self.config.model_name)
         logger.info(f"using the model - {self.config.model_name}")
 
-
     def _set_feedback(self):
-        provider = LiteLLM(model_engine='chat-bison-32k', max_output_tokens=2048, temperature=0.0)
+        provider = LiteLLM(
+            model_engine="chat-bison-32k", max_output_tokens=2048, temperature=0.0
+        )
         grounded = Groundedness(groundedness_provider=provider)
-        
+
         # LLM-based feedback functions
         f_criminality = Feedback(
             provider.criminality_with_cot_reasons,
@@ -56,11 +57,10 @@ class Prompting:
             higher_is_better=False,
         ).on_output()
 
-
         f_hate = Feedback(
             provider.harmfulness_with_cot_reasons,
             name="Harmfulness",
-            higher_is_better=False
+            higher_is_better=False,
         ).on_output()
 
         f_controvertial = Feedback(
@@ -69,13 +69,11 @@ class Prompting:
             higher_is_better=False,
         ).on_output()
 
-
         f_coherence = Feedback(
             provider.coherence_with_cot_reasons,
             name="Coherence",
             higher_is_better=True,
         ).on_output()
-
 
         f_currectness = Feedback(
             provider.correctness_with_cot_reasons,
@@ -86,7 +84,7 @@ class Prompting:
         f_helpful = Feedback(
             provider.helpfulness_with_cot_reasons,
             name="Helpfulness",
-            higher_is_better=True
+            higher_is_better=True,
         ).on_output()
 
         f_conciseness = Feedback(
@@ -94,7 +92,6 @@ class Prompting:
             name="Conciseness",
             higher_is_better=True,
         ).on_output()
-
 
         self.all_feedbacks = [
             f_coherence,
@@ -119,7 +116,7 @@ class Prompting:
         self._setup_env()
         self._initiate_data()
         self._set_feedback()
-        
+
         model = self.model
         images = self.images
         logger.info(type(self.images))
@@ -127,14 +124,22 @@ class Prompting:
 
         def _llm_standalone(prompt):
             return model.generate_content(
-                [prompt]+images , generation_config=configuration).text
-        
-        tru_app_recorder = TruBasicApp(_llm_standalone, app_id="Sentiment bot", feedbacks=self.all_feedbacks)
+                [prompt] + images, generation_config=configuration
+            ).text
+
+        tru_app_recorder = TruBasicApp(
+            _llm_standalone, app_id="Sentiment bot", feedbacks=self.all_feedbacks
+        )
         logger.info("created the basic recorder app")
 
-        logger.info(f"generating response with config - {self.config.generation_config}")
+        logger.info(
+            f"generating response with config - {self.config.generation_config}"
+        )
         with tru_app_recorder as records:
             response = tru_app_recorder.app("generate something")
-        
-        save_json(path=os.path.join(self.config.root_dir, self.config.response_file_name), data={"response": response})
+
+        save_json(
+            path=os.path.join(self.config.root_dir, self.config.response_file_name),
+            data={"response": response},
+        )
         logger.info(response)
