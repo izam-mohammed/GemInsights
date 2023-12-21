@@ -15,4 +15,5 @@ autoviz
 ipython
 google-cloud-aiplatform
 litellm
+markdown
 -e .
