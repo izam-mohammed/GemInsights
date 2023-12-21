@@ -70,7 +70,7 @@ These installation instructions assume that you have conda installed and added t
 - [Vishu Prasad]()
 - [Afsal](https://github.com/AfsalAfzz-Pro)
 - [Josekutty](github.com/jkutty-7)
-- [AbduRahiman]()
+- [AbduRahiman](https://github.com/abdurahiman-offc)
 - [Amal](https://github.com/Amallmmd)
 
 
