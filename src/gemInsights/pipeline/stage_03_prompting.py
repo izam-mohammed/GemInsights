@@ -21,7 +21,7 @@ class PromptingPredictionPipeline:
             list: The prompt object as a list
         """
         config = ConfigurationManager()
-        prompting_config = config.get_prompt_generation_config()
+        prompting_config = config.get_promting_config()
         prompting = Prompting(config=prompting_config)
         prompting.get_response()
 
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     try:
         logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
         obj = PromptingPredictionPipeline()
-        logger.info(obj.main())
+        obj.main()
         logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
     except Exception as e:
         logger.exception(e)

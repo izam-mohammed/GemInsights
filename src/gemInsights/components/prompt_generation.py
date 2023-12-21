@@ -19,7 +19,7 @@ class PromptGeneration:
         # df_shape = df.shape
         # df_columns = list(df.columns)
         # df_describe = str(df.describe())+"\n"+ str(df.describe(include=["O"]))
-        main_prompt = "Act as a data analyst. Here is the complete information and visualization images of a dataset. give valuable insights from the data point wise"
+        main_prompt = "Act as a data analyst. Here is the complete information and visualization images of a dataset. give valuable insights from the data."
         images = []
         image_dir = os.path.join(self.config.visualization_path, target_col)
         image_files = os.listdir(image_dir)
@@ -42,5 +42,3 @@ class PromptGeneration:
         result = prompt +images
 
         save_bin(data=result, path=Path(os.path.join(self.config.root_dir, self.config.prompt_file_name)))
-        
-        
