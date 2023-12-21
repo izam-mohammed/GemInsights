@@ -23,25 +23,21 @@ if file is not None:
         "Enter something about the data 👇",
         label_visibility="visible",
         disabled=False,
-        placeholder="eg:- This is a sales dataframe", 
+        placeholder="eg:- This is a sales dataframe",
     )
 
     option = st.selectbox(
-    "Which is the target column?",
-    tuple(list(dataframe.columns)),
-    index=None,
-    placeholder="Select one column in here",
+        "Which is the target column?",
+        tuple(list(dataframe.columns)),
+        index=None,
+        placeholder="Select one column in here",
     )
 
 if st.button("Get Insights", type="primary"):
-
     dataframe.to_csv("streamlit_files/data.csv")
     logger.info(f"saved the data at streamlit_files/data.csv")
 
-    additional_info = {
-        "additional_info": text_input,
-        "target_col":option
-    }
+    additional_info = {"additional_info": text_input, "target_col": option}
     save_json(path="streamlit_files/additional_data.json", data=additional_info)
 
     st.write("generating insights ...")

@@ -7,6 +7,7 @@ from vertexai.preview.generative_models import Part
 from pathlib import Path
 from gemInsights.entity.config_entity import PromptGenerationConfig
 
+
 class PromptGeneration:
     def __init__(self, config: PromptGenerationConfig):
         self.config = config
@@ -26,7 +27,9 @@ class PromptGeneration:
         for image_file in image_files:
             image_path = os.path.join(image_dir, image_file)
             img = open(image_path, "rb").read()
-            img_bytes = Part.from_data(base64.b64decode(base64.encodebytes(img)), mime_type="image/jpeg")
+            img_bytes = Part.from_data(
+                base64.b64decode(base64.encodebytes(img)), mime_type="image/jpeg"
+            )
             logger.info(f"added the image - {image_file}")
             images.append(img_bytes)
 
@@ -39,6 +42,9 @@ class PromptGeneration:
             # f"Here are some of the general statistics related the dataset - {df_describe}",
         ]
 
-        result = prompt +images
+        result = prompt + images
 
-        save_bin(data=result, path=Path(os.path.join(self.config.root_dir, self.config.prompt_file_name)))
+        save_bin(
+            data=result,
+            path=Path(os.path.join(self.config.root_dir, self.config.prompt_file_name)),
+        )

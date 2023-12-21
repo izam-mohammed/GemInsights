@@ -6,4 +6,6 @@ CREDENTIALS_FILE_PATH = "credentials/cloud_credentials.json"
 PARAMS_FILE_PATH = Path("params.yaml")
 
 if not Path(CREDENTIALS_FILE_PATH):
-    raise KeyError("cloud credentials not found !!! Add credentials as cloud_credentials.json in credentials folder")
+    raise KeyError(
+        "cloud credentials not found !!! Add credentials as cloud_credentials.json in credentials folder"
+    )

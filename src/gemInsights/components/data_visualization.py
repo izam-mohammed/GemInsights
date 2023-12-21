@@ -5,6 +5,7 @@ from gemInsights.entity.config_entity import DataVisualizationConfig
 from pathlib import Path
 import os
 
+
 class DataVisualization:
     def __init__(self, config: DataVisualizationConfig):
         self.config = config
@@ -12,7 +13,6 @@ class DataVisualization:
     def visualize(self):
         data_info = load_json(Path(self.config.info_file_path))
         target_col = data_info.target_col
-
 
         AV = AutoViz_Class()
 
