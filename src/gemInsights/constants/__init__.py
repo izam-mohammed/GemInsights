@@ -2,7 +2,8 @@ from pathlib import Path
 from os import environ
 
 CONFIG_FILE_PATH = Path("config/config.yaml")
-KEY_FILE_PATH = Path("gemini_key.json")
+CREDENTIALS_FILE_PATH = "credentials/cloud_credentials.json"
+PARAMS_FILE_PATH = Path("params.yaml")
 
-if not KEY_FILE_PATH:
-    raise KeyError("GEMINI_API_KEY not found !!!")
+if not Path(CREDENTIALS_FILE_PATH):
+    raise KeyError("cloud credentials not found !!! Add credentials as cloud_credentials.json in credentials folder")

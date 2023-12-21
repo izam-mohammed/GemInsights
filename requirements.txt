@@ -10,4 +10,5 @@ joblib
 ensure
 dataframe_image
 jinja2
+PyYAML
 -e .

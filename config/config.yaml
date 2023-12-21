@@ -16,3 +16,11 @@ prompt_generation:
   data_path: artifacts/data_ingestion/data.csv
   visualization_path: artifacts/data_visualization/
   data_information_file: artifacts/data_ingestion/data_info.json
+
+prompting:
+  root_dir: artifacts/prompting
+  model_name: gemini-pro-vision
+  response_file_name: response.json
+  candidates_file_name: candidates.json
+  project_name: ultra-heading-407815
+  project_location: us-central1
