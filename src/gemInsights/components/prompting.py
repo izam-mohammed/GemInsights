@@ -13,30 +13,28 @@ class Prompting:
     def __init__(self, config: PromptingConfig):
         self.config = config
 
-    def get_response(self):
+    def _setup_env(self):
         aiplatform.init(
-            project=self.config.project_name,
-            location=self.config.project_location,
+            project = self.config.project_name,
+            location= self.config.project_location,
         )
         logger.info(f"Google cloud project name - {self.config.project_name}")
-
+        
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = self.config.credentials
         logger.info("loaded the google cloud credentials")
 
+
+    def get_response(self):
+        self._setup_env()
         model = GenerativeModel(self.config.model_name)
         logger.info(f"using the model - {self.config.model_name}")
 
-        logger.info(
-            f"generating response with config - {self.config.generation_config}"
-        )
+        logger.info(f"generating response with config - {self.config.generation_config}")
         prompt = load_bin(Path(self.config.prompt_file_path))
         responses = model.generate_content(
             prompt,
             generation_config=self.config.generation_config,
-        )
-
-        save_json(
-            path=os.path.join(self.config.root_dir, self.config.response_file_name),
-            data={"response": responses.text},
-        )
+            )
+        
+        save_json(path=os.path.join(self.config.root_dir, self.config.response_file_name), data={"response": responses.text})
         logger.info(responses.text)
