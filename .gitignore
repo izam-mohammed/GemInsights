@@ -161,3 +161,4 @@ cython_debug/
 
 # artifacts in the process
 artifacts/
+streamlit_files/
