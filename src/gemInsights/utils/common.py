@@ -153,7 +153,7 @@ def save_txt(data, path: Path):
         path (Path): path to text file
     """
     with open(path, "w") as f:
-        f.write(data)
+        f.write(str(data))
 
     logger.info(f"txt file saved at: {path}")
 
@@ -196,7 +196,7 @@ def read_text(path:Path):
     Returns:
         Any: object stored in the file
     """
-    with open(path, "r") as file:
+    with open(path, "rb") as file:
         data = file.read()
     logger.info(f"text file loaded from: {path}")
     return data
