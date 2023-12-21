@@ -11,4 +11,6 @@ ensure
 dataframe_image
 jinja2
 PyYAML
+autoviz
+google-cloud-aiplatform
 -e .

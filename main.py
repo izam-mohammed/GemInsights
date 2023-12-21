@@ -28,5 +28,6 @@ def run_pipeline(stage_name, pipeline_instance):
 
 if __name__ == "__main__":
     run_pipeline("Data Ingestion", DataIngestionPredictionPipeline())
-    run_pipeline("data visualization", DataVisualizationPredictionPipeline())
-    
+    run_pipeline("Data visualization", DataVisualizationPredictionPipeline())
+    run_pipeline("Data Prompt Generation", PromptGenerationPredictionPipeline())
+    run_pipeline("Propting", PromptingPredictionPipeline())

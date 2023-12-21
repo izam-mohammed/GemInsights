@@ -4,8 +4,9 @@ import os
 import base64
 import vertexai
 from vertexai.preview.generative_models import GenerativeModel, Part
-from gemInsights.utils.common import load_json, save_json
+from gemInsights.utils.common import load_json, save_json, load_bin
 from gemInsights.entity.config_entity import PromptingConfig
+from pathlib import Path
 
 class Prompting:
     def __init__(self, config: PromptingConfig):
@@ -25,8 +26,9 @@ class Prompting:
         logger.info(f"using the model - {self.config.model_name}")
 
         logger.info(f"generating response with config - {self.config.generation_config}")
+        prompt = load_bin(Path(self.config.prompt_file_path))
         responses = model.generate_content(
-            self.config.prompt,
+            prompt,
             generation_config=self.config.generation_config,
             )
         

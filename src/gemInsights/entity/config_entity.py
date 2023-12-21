@@ -21,11 +21,12 @@ class PromptGenerationConfig:
     data_path: Path
     visualization_path: Path
     data_information_file: Path
+    prompt_file_name: str
+
 
 @dataclass(frozen=True)
 class PromptingConfig:
     root_dir: Path
-    prompt: list
     model_name: str
     response_file_name: str
     candidates_file_name: str
@@ -33,3 +34,4 @@ class PromptingConfig:
     generation_config: dict
     project_name: str
     project_location: str
+    prompt_file_path: Path

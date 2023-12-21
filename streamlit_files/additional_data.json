@@ -1,4 +1,4 @@
 {
     "additional_info": "It is a sales data",
-    "target_col":"Rating"
+    "target_col":"Sales"
 }
