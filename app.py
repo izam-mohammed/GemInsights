@@ -12,7 +12,9 @@ if not os.path.isdir("streamlit_files"):
 
 dataframe = None
 st.title("GemInsights")
-file = st.file_uploader("Pick a dataframe", type=["csv", "xlsx"], accept_multiple_files=False)
+file = st.file_uploader(
+    "Pick a dataframe", type=["csv", "xlsx"], accept_multiple_files=False
+)
 
 if file is not None:
     _, extension = os.path.splitext(file.name)

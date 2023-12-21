@@ -27,18 +27,24 @@ class PromptGeneration:
         for image_file in image_files:
             image_path = os.path.join(image_dir, image_file)
             img = open(image_path, "rb").read()
-            img_bytes = Part.from_data(base64.b64decode(base64.encodebytes(img)), mime_type="image/jpeg")
+            img_bytes = Part.from_data(
+                base64.b64decode(base64.encodebytes(img)), mime_type="image/jpeg"
+            )
             logger.info(f"added the image - {image_file}")
             images.append(img_bytes)
 
         prompt = f"{self.config.main_prompt}"
-            # f"This is the target column of the dataset - '{target_col}'",
-            # f"Here are some of the informations related to the dataset - '{additional_info}'",
-            # f"The shape of the dataset is {df_shape}",
-            # f"The columns in the dataset are {df_columns}",
-            # f"Here are some of the general statistics related the dataset - {df_describe}",
+        # f"This is the target column of the dataset - '{target_col}'",
+        # f"Here are some of the informations related to the dataset - '{additional_info}'",
+        # f"The shape of the dataset is {df_shape}",
+        # f"The columns in the dataset are {df_columns}",
+        # f"Here are some of the general statistics related the dataset - {df_describe}",
 
-        save_bin(data=images, path=Path(os.path.join(self.config.root_dir, self.config.images_file_name)))
-        save_bin(data=prompt, path=Path(os.path.join(self.config.root_dir, self.config.prompt_file_name)))
-        
-        
+        save_bin(
+            data=images,
+            path=Path(os.path.join(self.config.root_dir, self.config.images_file_name)),
+        )
+        save_bin(
+            data=prompt,
+            path=Path(os.path.join(self.config.root_dir, self.config.prompt_file_name)),
+        )
