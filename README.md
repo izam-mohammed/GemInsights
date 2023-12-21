@@ -71,7 +71,7 @@ These installation instructions assume that you have conda installed and added t
 - [Afsal](https://github.com/AfsalAfzz-Pro)
 - [Josekutty](github.com/jkutty-7)
 - [AbduRahiman]()
-- [Amal]()
+- [Amal](https://github.com/Amallmmd)
 
 
 ## Repository Code Formatting 📝
