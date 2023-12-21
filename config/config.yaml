@@ -16,6 +16,7 @@ prompt_generation:
   data_path: artifacts/data_ingestion/data.csv
   visualization_path: artifacts/data_visualization/
   data_information_file: artifacts/data_ingestion/data_info.json
+  prompt_file_name: prompt.joblib
 
 prompting:
   root_dir: artifacts/prompting
@@ -24,3 +25,4 @@ prompting:
   candidates_file_name: candidates.json
   project_name: ultra-heading-407815
   project_location: us-central1
+  prompt_file_path: artifacts/prompt_generation/prompt.joblib

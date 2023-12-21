@@ -2,17 +2,20 @@ from gemInsights.constants import *
 from gemInsights.utils.common import read_yaml, create_directories
 from gemInsights.entity.config_entity import (DataIngestionConfig,
                                               DataVisualizationConfig,
-                                              PromptGenerationConfig)
+                                              PromptGenerationConfig,
+                                              PromptingConfig)
 
 #udpate configuration manager
 class ConfigurationManager:
     def __init__(
         self,
         config_filepath = CONFIG_FILE_PATH,
-        key_filepath = KEY_FILE_PATH):
+        credentials_file_path = CREDENTIALS_FILE_PATH,
+        params_file_path = PARAMS_FILE_PATH):
 
         self.config = read_yaml(config_filepath)
-        self.key = read_yaml(key_filepath)
+        self.credentials = credentials_file_path
+        self.params = read_yaml(params_file_path)
 
         create_directories([self.config.artifacts_root])
 
@@ -59,3 +62,23 @@ class ConfigurationManager:
         )
 
         return prompt_generation_config
+    
+
+    def get_promting_config(self, prompt) -> PromptingConfig:
+        config = self.config.prompting
+        
+        create_directories([config.root_dir])
+
+        prompting_config = PromptingConfig(
+            root_dir=config.root_dir,
+            prompt=prompt,
+            model_name=config.model_name, 
+            response_file_name=config.response_file_name,
+            candidates_file_name=config.candidates_file_name,
+            credentials=self.credentials,
+            generation_config=dict(self.params.generation_config),
+            project_name=config.project_name,
+            project_location=config.project_location            
+        )
+
+        return prompting_config

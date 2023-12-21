@@ -1,10 +1,11 @@
 import pandas as pd
 from gemInsights.utils.common import load_json
 import os
-import PIL.Image
+import base64
 from gemInsights import logger
 from gemInsights.entity.config_entity import PromptGenerationConfig
 from pathlib import Path
+from vertexai.preview.generative_models import Part
 
 class PromptGeneration:
     def __init__(self, config: PromptGenerationConfig):
@@ -24,8 +25,9 @@ class PromptGeneration:
         image_files = os.listdir(image_dir)
         for image_file in image_files:
             image_path = os.path.join(image_dir, image_file)
-            img = PIL.Image.open(image_path)
-            images.append(img)
+            img = open(image_path, "rb").read()
+            img_bytes = Part.from_data(base64.b64decode(base64.encodebytes(img)), mime_type="image/jpeg")
+            images.append(img_bytes)
 
         prompt = [
             main_prompt,
