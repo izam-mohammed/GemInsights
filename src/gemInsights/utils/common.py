@@ -187,7 +187,7 @@ def round_batch(*vars):
 
 
 @ensure_annotations
-def read_text(path:Path):
+def read_text(path: Path):
     """load a text file
 
     Args:
