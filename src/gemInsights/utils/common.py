@@ -184,3 +184,19 @@ def round_batch(*vars):
     for i in vars:
         res.append(round(i, 3))
     return tuple(res)
+
+
+@ensure_annotations
+def read_text(path:Path):
+    """load a text file
+
+    Args:
+        path (Path): path to binary file
+
+    Returns:
+        Any: object stored in the file
+    """
+    with open(path, "r") as file:
+        data = file.read()
+    logger.info(f"text file loaded from: {path}")
+    return data

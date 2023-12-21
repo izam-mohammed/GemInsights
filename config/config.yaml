@@ -16,7 +16,8 @@ prompt_generation:
   data_path: artifacts/data_ingestion/data.csv
   visualization_path: artifacts/data_visualization/
   data_information_file: artifacts/data_ingestion/data_info.json
-  prompt_file_name: prompt.joblib
+  prompt_file_name: prompt.txt
+  images_file_name: images.joblib
 
 prompting:
   root_dir: artifacts/prompting
