@@ -33,7 +33,7 @@ To get started with the Note Taking Website, follow these steps:
 
 5. Run the server
    ```bash
-   python app.py
+   streamlit run app.py
    ```
 
 ### pipelines
@@ -47,7 +47,7 @@ To get started with the Note Taking Website, follow these steps:
 
 - [Izam Mohammed](github.com/izam-mohammed)
 - [Vishu Prasad]()
-- [Afsal]()
+- [Afsal](https://github.com/AfsalAfzz-Pro)
 - [Josekutty](github.com/jkutty-7)
 - [AbduRahiman]()
 - [Amal]()
