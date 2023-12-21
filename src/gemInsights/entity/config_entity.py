@@ -39,3 +39,4 @@ class PromptingConfig:
     project_name: str
     project_location: str
     prompt_file_path: Path
+    images_file_path: Path
