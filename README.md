@@ -56,7 +56,7 @@ These installation instructions assume that you have conda installed and added t
 
 6. Run the Trulens server for check the performance
    ```bash
-   trulens-eval
+   python trulens_evaluate.py
    ```
 
 ### pipelines
