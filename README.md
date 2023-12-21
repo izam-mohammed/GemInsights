@@ -1,5 +1,22 @@
 # GemInsights
 
+<p>
+<img src="https://img.shields.io/badge/Python-239120?logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/Github-181717?logo=github&logoColor=white" />
+<img src="https://img.shields.io/badge/GIT-E44C30?logo=git&logoColor=white" />
+<img src="https://img.shields.io/badge/prettier-1A2C34?logo=prettier&logoColor=white" />
+<img src="https://img.shields.io/badge/GitHub_Actions-563D7C?logo=github-actions&logoColor=white"/>
+<img src="https://img.shields.io/badge/Matplotlib-%23ffffff.svg?&logo=Matplotlib&logoColor=black">
+<img src="https://img.shields.io/badge/pandas-%23150458.svg?&logo=pandas&logoColor=white">
+<img src="https://img.shields.io/badge/Plotly-%233F4F75.svg?&logo=plotly&logoColor=white">
+<img src="https://img.shields.io/badge/Google_Cloud-4285F4?&logo=google-cloud&logoColor=white">
+</p>
+
+![PyPI v0.5](https://img.shields.io/badge/PyPI-v0.5-blue.svg)
+![MIT License](https://img.shields.io/badge/License-MIT-lightgray.svg)
+![build](https://img.shields.io/badge/Build-passing-green.svg)
+
+
 Repo for GemInsights: A project in Lablab ai Gemini Hackathon
 
 ![](https://drive.google.com/uc?export=view&id=1qJD9HbdUZ3U3CgvY2IsGLX5NZIVLznL4)
@@ -7,9 +24,10 @@ Repo for GemInsights: A project in Lablab ai Gemini Hackathon
 
 ### Installation and Setup 🛠️
 
+
 These installation instructions assume that you have conda installed and added to your path.
 
-To get started with the Note Taking Website, follow these steps:
+*To get started with the Note Taking Website, follow these steps:*
 
 1. Clone the Repository: Clone this repository to your local machine using the following command:
 
@@ -38,12 +56,15 @@ To get started with the Note Taking Website, follow these steps:
 
 ### pipelines
 
+
 - Visualizations 
 - Prompt Creation
 - Prompting
 - Evaluation
 
+
 ## Hackathon Team members 👥
+
 
 - [Izam Mohammed](github.com/izam-mohammed)
 - [Vishu Prasad]()
@@ -54,6 +75,7 @@ To get started with the Note Taking Website, follow these steps:
 
 
 ## Repository Code Formatting 📝
+
 
 This repository follows a consistent code formatting approach to enhance readability and maintainability.
 
@@ -72,9 +94,12 @@ black .
 
 HTML files in this repository are formatted using [Prettier](https://prettier.io/). Prettier is a code formatter that supports multiple languages, including HTML.
 
+
 ## License 📄
 
+
 This project is licensed under the [MIT License](LICENSE).
+
 
 ## Acknowledgements 🙌
 
