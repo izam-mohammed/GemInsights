@@ -20,31 +20,25 @@ class PromptGeneration:
         # df_shape = df.shape
         # df_columns = list(df.columns)
         # df_describe = str(df.describe())+"\n"+ str(df.describe(include=["O"]))
-        main_prompt = "Act as a data analyst. Here is the complete information and visualization images of a dataset. give valuable insights from the data."
+
         images = []
         image_dir = os.path.join(self.config.visualization_path, target_col)
         image_files = os.listdir(image_dir)
         for image_file in image_files:
             image_path = os.path.join(image_dir, image_file)
             img = open(image_path, "rb").read()
-            img_bytes = Part.from_data(
-                base64.b64decode(base64.encodebytes(img)), mime_type="image/jpeg"
-            )
+            img_bytes = Part.from_data(base64.b64decode(base64.encodebytes(img)), mime_type="image/jpeg")
             logger.info(f"added the image - {image_file}")
             images.append(img_bytes)
 
-        prompt = [
-            main_prompt,
+        prompt = f"{self.config.main_prompt}"
             # f"This is the target column of the dataset - '{target_col}'",
             # f"Here are some of the informations related to the dataset - '{additional_info}'",
             # f"The shape of the dataset is {df_shape}",
             # f"The columns in the dataset are {df_columns}",
             # f"Here are some of the general statistics related the dataset - {df_describe}",
-        ]
 
-        result = prompt + images
-
-        save_bin(
-            data=result,
-            path=Path(os.path.join(self.config.root_dir, self.config.prompt_file_name)),
-        )
+        save_bin(data=images, path=Path(os.path.join(self.config.root_dir, self.config.images_file_name)))
+        save_bin(data=prompt, path=Path(os.path.join(self.config.root_dir, self.config.prompt_file_name)))
+        
+        

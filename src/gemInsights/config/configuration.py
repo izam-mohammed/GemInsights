@@ -1,5 +1,5 @@
 from gemInsights.constants import *
-from gemInsights.utils.common import read_yaml, create_directories
+from gemInsights.utils.common import read_yaml, create_directories, read_text
 from gemInsights.entity.config_entity import (
     DataIngestionConfig,
     DataVisualizationConfig,
@@ -15,10 +15,12 @@ class ConfigurationManager:
         config_filepath=CONFIG_FILE_PATH,
         credentials_file_path=CREDENTIALS_FILE_PATH,
         params_file_path=PARAMS_FILE_PATH,
+        prompt = MAIN_PROMPT_FILE_PATH,
     ):
         self.config = read_yaml(config_filepath)
         self.credentials = credentials_file_path
         self.params = read_yaml(params_file_path)
+        self.prompt = read_text(MAIN_PROMPT_FILE_PATH)
 
         create_directories([self.config.artifacts_root])
 
@@ -49,9 +51,10 @@ class ConfigurationManager:
 
         return data_visualization_config
 
+
     def get_prompt_generation_config(self) -> PromptGenerationConfig:
         config = self.config.prompt_generation
-
+        
         create_directories([config.root_dir])
 
         prompt_generation_config = PromptGenerationConfig(
@@ -60,9 +63,12 @@ class ConfigurationManager:
             visualization_path=config.visualization_path,
             data_information_file=config.data_information_file,
             prompt_file_name=config.prompt_file_name,
+            main_prompt=self.prompt,
+            images_file_name=config.images_file_name,
         )
 
         return prompt_generation_config
+    
 
     def get_promting_config(self) -> PromptingConfig:
         config = self.config.prompting

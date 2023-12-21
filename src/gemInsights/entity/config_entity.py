@@ -24,6 +24,8 @@ class PromptGenerationConfig:
     visualization_path: Path
     data_information_file: Path
     prompt_file_name: str
+    images_file_name: str
+    main_prompt: str
 
 
 @dataclass(frozen=True)
