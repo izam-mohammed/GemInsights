@@ -12,5 +12,6 @@ dataframe_image
 jinja2
 PyYAML
 autoviz
+ipython
 google-cloud-aiplatform
 -e .
