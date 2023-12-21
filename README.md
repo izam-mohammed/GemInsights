@@ -63,7 +63,7 @@ These installation instructions assume that you have conda installed and added t
 - Evaluation
 
 
-## Hackathon Team members 👥
+## Team members 👥
 
 
 - [Izam Mohammed](github.com/izam-mohammed)
