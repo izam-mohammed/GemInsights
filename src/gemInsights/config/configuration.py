@@ -20,7 +20,7 @@ class ConfigurationManager:
         self.config = read_yaml(config_filepath)
         self.credentials = credentials_file_path
         self.params = read_yaml(params_file_path)
-        self.prompt = read_text(MAIN_PROMPT_FILE_PATH)
+        self.prompt = read_text(prompt)
 
         create_directories([self.config.artifacts_root])
 
@@ -72,12 +72,12 @@ class ConfigurationManager:
 
     def get_promting_config(self) -> PromptingConfig:
         config = self.config.prompting
-
+        
         create_directories([config.root_dir])
 
         prompting_config = PromptingConfig(
             root_dir=config.root_dir,
-            model_name=config.model_name,
+            model_name=config.model_name, 
             response_file_name=config.response_file_name,
             candidates_file_name=config.candidates_file_name,
             credentials=self.credentials,
@@ -85,6 +85,7 @@ class ConfigurationManager:
             project_name=config.project_name,
             project_location=config.project_location,
             prompt_file_path=config.prompt_file_path,
+            images_file_path=config.images_file_path,
         )
 
         return prompting_config
