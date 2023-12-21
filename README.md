@@ -54,8 +54,12 @@ These installation instructions assume that you have conda installed and added t
    streamlit run app.py
    ```
 
-### pipelines
+6. Run the Trulens server for check the performance
+   ```bash
+   trulens-eval
+   ```
 
+### pipelines
 
 - Visualizations 
 - Prompt Creation
