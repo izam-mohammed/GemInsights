@@ -18,6 +18,15 @@ class ConfigurationManager:
         params_file_path=PARAMS_FILE_PATH,
         prompt=MAIN_PROMPT_FILE_PATH,
     ):
+        """
+        Initialize the ConfigurationManager.
+
+        Parameters:
+        - config_filepath (str): Path to the configuration file.
+        - credentials_file_path (str): Path to the Google Cloud credentials file.
+        - params_file_path (str): Path to the parameters file.
+        - prompt (str): Path to the main prompt file.
+        """
         self.config = read_yaml(config_filepath)
         self.credentials = credentials_file_path
         self.params = read_yaml(params_file_path)
@@ -26,6 +35,12 @@ class ConfigurationManager:
         create_directories([self.config.artifacts_root])
 
     def get_data_ingestion_config(self) -> DataIngestionConfig:
+        """
+        Get the configuration for data ingestion.
+
+        Returns:
+        DataIngestionConfig: Configuration for data ingestion.
+        """
         config = self.config.data_ingestion
 
         create_directories([config.root_dir])
@@ -40,6 +55,12 @@ class ConfigurationManager:
         return data_ingestion_config
 
     def get_data_visualization_config(self) -> DataVisualizationConfig:
+        """
+        Get the configuration for data visualization.
+
+        Returns:
+        DataVisualizationConfig: Configuration for data visualization.
+        """
         config = self.config.data_visualization
 
         create_directories([config.root_dir])
@@ -53,6 +74,12 @@ class ConfigurationManager:
         return data_visualization_config
 
     def get_prompt_generation_config(self) -> PromptGenerationConfig:
+        """
+        Get the configuration for prompt generation.
+
+        Returns:
+        PromptGenerationConfig: Configuration for prompt generation.
+        """
         config = self.config.prompt_generation
 
         create_directories([config.root_dir])
@@ -70,6 +97,12 @@ class ConfigurationManager:
         return prompt_generation_config
 
     def get_promting_config(self) -> PromptingConfig:
+        """
+        Get the configuration for prompting.
+
+        Returns:
+        PromptingConfig: Configuration for prompting.
+        """
         config = self.config.prompting
 
         create_directories([config.root_dir])

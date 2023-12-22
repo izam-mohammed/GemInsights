@@ -1,12 +1,16 @@
 from gemInsights import logger
-from gemInsights.pipeline.stage_00_data_ingestion import DataIngestionPredictionPipeline
+from gemInsights.pipeline.stage_00_data_ingestion import (
+    DataIngestionPredictionPipeline
+)
 from gemInsights.pipeline.stage_01_data_visualization import (
     DataVisualizationPredictionPipeline,
 )
 from gemInsights.pipeline.stage_02_prompt_generation import (
     PromptGenerationPredictionPipeline,
 )
-from gemInsights.pipeline.stage_03_prompting import PromptingPredictionPipeline
+from gemInsights.pipeline.stage_03_prompting import (
+    PromptingPredictionPipeline
+)
 
 
 def run_pipeline(stage_name, pipeline_instance):
@@ -35,4 +39,4 @@ if __name__ == "__main__":
     run_pipeline("Data Ingestion", DataIngestionPredictionPipeline())
     run_pipeline("Data visualization", DataVisualizationPredictionPipeline())
     run_pipeline("Data Prompt Generation", PromptGenerationPredictionPipeline())
-    run_pipeline("Propting", PromptingPredictionPipeline())
+    run_pipeline("Prompting", PromptingPredictionPipeline())

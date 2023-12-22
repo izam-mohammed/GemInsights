@@ -10,13 +10,29 @@ from gemInsights.entity.config_entity import PromptGenerationConfig
 
 class PromptGeneration:
     def __init__(self, config: PromptGenerationConfig):
+        """
+        Initialize the PromptGeneration object.
+
+        Parameters:
+        - config (PromptGenerationConfig): Configuration object for prompt generation.
+        """
         self.config = config
 
-    def generate(self):
+    def generate(self) -> None:
+        """
+        Generate a prompt based on the provided configuration and dataset information.
+
+        Reads a CSV file specified in the configuration, loads the dataset into a pandas DataFrame,
+        loads additional information from a JSON file, loads images from a specified directory,
+        generates a prompt string, and saves images and the prompt to binary files.
+
+        Returns:
+        None
+        """
         df = pd.read_csv(self.config.data_path)
         info_json = load_json(Path(self.config.data_information_file))
         target_col = info_json.target_col
-        # additional_info = info_json.additional_info
+        additional_info = info_json.additional_info
         # df_shape = df.shape
         # df_columns = list(df.columns)
         # df_describe = str(df.describe())+"\n"+ str(df.describe(include=["O"]))
@@ -33,9 +49,8 @@ class PromptGeneration:
             logger.info(f"added the image - {image_file}")
             images.append(img_bytes)
 
-        prompt = f"{self.config.main_prompt}"
+        prompt = f"{self.config.main_prompt}\n Here are some of the informations related to the dataset - '{additional_info}'"
         # f"This is the target column of the dataset - '{target_col}'",
-        # f"Here are some of the informations related to the dataset - '{additional_info}'",
         # f"The shape of the dataset is {df_shape}",
         # f"The columns in the dataset are {df_columns}",
         # f"Here are some of the general statistics related the dataset - {df_describe}",

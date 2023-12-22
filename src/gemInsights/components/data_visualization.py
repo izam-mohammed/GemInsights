@@ -8,9 +8,24 @@ import os
 
 class DataVisualization:
     def __init__(self, config: DataVisualizationConfig):
+        """
+        Initialize the DataVisualization object.
+
+        Parameters:
+        - config (DataVisualizationConfig): Configuration object for data visualization.
+        """
         self.config = config
 
-    def visualize(self):
+    def visualize(self) -> None:
+        """
+        Generate visualizations for the specified data file and save the plots.
+
+        Uses AutoViz to automatically generate visualizations for the specified data file.
+        The generated plots are saved in the directory specified in the configuration.
+
+        Returns:
+        None
+        """
         data_info = load_json(Path(self.config.info_file_path))
         target_col = data_info.target_col
 
