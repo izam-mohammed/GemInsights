@@ -63,6 +63,8 @@ These installation instructions assume that you have conda installed and added t
 
 ### pipelines
 
+![](https://drive.google.com/uc?export=view&id=13N1ZEfTpRQsrtU3DpDk5CoaKuwjE1nWH)
+
 - Visualizations 
 - Prompt Creation
 - Prompting
