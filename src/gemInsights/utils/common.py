@@ -82,7 +82,7 @@ def load_json(path: Path) -> ConfigBox:
 
 
 @ensure_annotations
-def save_bin(data, path: Path) -> None:
+def save_bin(data, path: Path):
     """save binary file
 
     Args:
@@ -94,7 +94,7 @@ def save_bin(data, path: Path) -> None:
 
 
 @ensure_annotations
-def save_bin_dup(data, path: Path) -> None:
+def save_bin_dup(data, path: Path):
     """save binary file
 
     Args:
@@ -145,7 +145,7 @@ def get_size(path: Path) -> str:
 
 
 @ensure_annotations
-def save_txt(data, path: Path) -> None:
+def save_txt(data, path: Path):
     """save text file
 
     Args:
