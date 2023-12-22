@@ -16,4 +16,6 @@ ipython
 google-cloud-aiplatform
 markdown
 litellm
+trulens-eval
+llama-index
 -e .
