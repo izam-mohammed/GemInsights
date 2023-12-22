@@ -9,13 +9,13 @@ STAGE_NAME = "Data Ingestion stage"
 class DataIngestionPredictionPipeline:
     def __init__(self):
         """
-        Initialize DataIngestionTrainingPipeline instance.
+        Initialize DataIngestionPredictionPipeline instance.
         """
         pass
 
-    def main(self):
+    def main(self) -> None:
         """
-        Execute the main steps of the data ingestion training pipeline.
+        Execute the main steps of the data ingestion prediction pipeline.
 
         Returns:
             None

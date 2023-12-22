@@ -13,9 +13,23 @@ from pathlib import Path
 
 class Prompting:
     def __init__(self, config: PromptingConfig):
+        """
+        Initialize the Prompting object.
+
+        Parameters:
+        - config (PromptingConfig): Configuration object for prompting.
+        """
         self.config = config
 
-    def _setup_env(self):
+    def _setup_env(self) -> None:
+        """
+        Set up the environment for Trulens and Google Cloud.
+
+        Initialize Trulens and set up Google Cloud credentials.
+
+        Returns:
+        None
+        """
         tru = Tru()
         # tru.reset_database()
         logger.info(f"initialized trulens with db")
@@ -32,7 +46,15 @@ class Prompting:
         self.model = GenerativeModel(self.config.model_name)
         logger.info(f"using the model - {self.config.model_name}")
 
-    def _set_feedback(self):
+    def _set_feedback(self) -> None:
+        """
+        Set up feedback functions for evaluation.
+
+        Uses LiteLLM for feedback on various aspects like criminality, insensitivity, etc.
+
+        Returns:
+        None
+        """
         provider = LiteLLM(
             model_engine="chat-bison-32k", max_output_tokens=2048, temperature=0.0
         )
@@ -107,12 +129,29 @@ class Prompting:
 
         logger.info("loaded all feedback functions")
 
-    def _initiate_data(self):
+    def _initiate_data(self) -> None:
+        """
+        Load prompt and images data.
+
+        Reads prompt text and images from specified files.
+
+        Returns:
+        None
+        """
         self.prompt = read_text(Path(self.config.prompt_file_path))
         self.images = load_bin(Path(self.config.images_file_path))
         logger.info("initialized the prompt and the image file")
 
-    def get_response(self):
+    def get_response(self) -> None:
+        """
+        Generate a response using the configured model and feedback functions.
+
+        Sets up the environment, loads data, and uses the configured model to generate a response.
+        The generated response is saved to a JSON file.
+
+        Returns:
+        None
+        """
         self._setup_env()
         self._initiate_data()
         self._set_feedback()

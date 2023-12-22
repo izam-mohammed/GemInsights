@@ -13,7 +13,7 @@ class DataVisualizationPredictionPipeline:
         """
         pass
 
-    def main(self):
+    def main(self) -> None:
         """
         Execute the main steps of the data visualize prediction pipeline.
 

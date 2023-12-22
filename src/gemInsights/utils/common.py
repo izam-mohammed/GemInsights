@@ -82,7 +82,7 @@ def load_json(path: Path) -> ConfigBox:
 
 
 @ensure_annotations
-def save_bin(data, path: Path):
+def save_bin(data, path: Path) -> None:
     """save binary file
 
     Args:
@@ -94,7 +94,7 @@ def save_bin(data, path: Path):
 
 
 @ensure_annotations
-def save_bin_dup(data, path: Path):
+def save_bin_dup(data, path: Path) -> None:
     """save binary file
 
     Args:
@@ -145,7 +145,7 @@ def get_size(path: Path) -> str:
 
 
 @ensure_annotations
-def save_txt(data, path: Path):
+def save_txt(data, path: Path) -> None:
     """save text file
 
     Args:
@@ -158,7 +158,7 @@ def save_txt(data, path: Path):
     logger.info(f"txt file saved at: {path}")
 
 
-def is_nan(value):
+def is_nan(value) -> bool:
     """Check if a value is NaN.
 
     Args:
