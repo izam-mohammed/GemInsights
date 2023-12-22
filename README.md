@@ -47,7 +47,9 @@ These installation instructions assume that you have conda installed and added t
    pip install -r requirements.txt
    ```
 
-4. Set the google cloud credentials in credentials folder as cloud_credentials.json
+4. Set the google cloud credentials
+   - Set the credentials in credentials folder as `cloud_credentials.json`
+   - Change the project name in `config/config.yaml`, `prompting: project_name:` to the project in your google cloud 
 
 5. Run the server
    ```bash
