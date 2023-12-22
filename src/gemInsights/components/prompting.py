@@ -167,7 +167,7 @@ class Prompting:
             ).text
 
         tru_app_recorder = TruBasicApp(
-            _llm_standalone, app_id="Sentiment bot", feedbacks=self.all_feedbacks
+            _llm_standalone, app_id="Evaluation bot", feedbacks=self.all_feedbacks
         )
         logger.info("created the basic recorder app")
 
