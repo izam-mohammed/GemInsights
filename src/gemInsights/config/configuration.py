@@ -1,5 +1,6 @@
 from gemInsights.constants import *
-from gemInsights.utils.common import read_yaml, create_directories, read_text
+from gemInsights.utils.common import read_yaml, create_directories, read_text, load_json
+from pathlib import Path
 from gemInsights.entity.config_entity import (
     DataIngestionConfig,
     DataVisualizationConfig,
@@ -80,7 +81,7 @@ class ConfigurationManager:
             candidates_file_name=config.candidates_file_name,
             credentials=self.credentials,
             generation_config=dict(self.params.generation_config),
-            project_name=config.project_name,
+            project_name=load_json(Path(self.credentials)).project_id,
             project_location=config.project_location,
             prompt_file_path=config.prompt_file_path,
             images_file_path=config.images_file_path,
