@@ -38,7 +38,9 @@ These installation instructions assume that you have conda installed and added t
 
 2. Create a virtual environment (or modify an existing one).
    ```bash
-   conda create -n geminsights python=3.11  # Skip if using an existing environment.
+   conda create -n geminsights python=3.11
+   ```
+   ```bash
    conda activate geminsights
    ```
  
