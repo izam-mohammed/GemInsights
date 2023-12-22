@@ -16,5 +16,4 @@ ipython
 google-cloud-aiplatform
 markdown
 litellm
-markdown
 -e .
