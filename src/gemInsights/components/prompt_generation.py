@@ -1,5 +1,5 @@
 import pandas as pd
-from gemInsights.utils.common import load_json, save_bin
+from gemInsights.utils.common import load_json, save_bin, save_txt
 import os
 import base64
 from gemInsights import logger
@@ -59,7 +59,7 @@ class PromptGeneration:
             data=images,
             path=Path(os.path.join(self.config.root_dir, self.config.images_file_name)),
         )
-        save_bin(
+        save_txt(
             data=prompt,
             path=Path(os.path.join(self.config.root_dir, self.config.prompt_file_name)),
         )
