@@ -18,4 +18,5 @@ markdown
 litellm
 trulens-eval
 llama-index
+openpyxl
 -e .
