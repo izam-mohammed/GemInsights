@@ -11,7 +11,8 @@ if not os.path.isdir("streamlit_files"):
     os.makedirs(os.path.join(os.getcwd(), "streamlit_files"), exist_ok=True)
 
 dataframe = None
-st.title("GemInsights")
+st.title("GemInsights 📊")
+st.caption('A gemini powered data analysis tool to get insights from data 🔥')
 file = st.file_uploader(
     "Pick a dataframe", type=["csv", "xlsx"], accept_multiple_files=False
 )
@@ -34,7 +35,7 @@ if file is not None:
     )
 
     option = st.selectbox(
-        "Which is the target column?",
+        "Which is the target column ? 🎯",
         tuple(list(dataframe.columns)),
         index=None,
         placeholder="Select one column in here",
