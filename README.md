@@ -100,10 +100,6 @@ pip install black
 black .
 ```
 
-### HTML Files 🌐
-
-HTML files in this repository are formatted using [Prettier](https://prettier.io/). Prettier is a code formatter that supports multiple languages, including HTML.
-
 
 ## License 📄
 
