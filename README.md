@@ -12,7 +12,6 @@
 <img src="https://img.shields.io/badge/Google_Cloud-4285F4?&logo=google-cloud&logoColor=white">
 </p>
 
-![PyPI v0.5](https://img.shields.io/badge/PyPI-v0.5-blue.svg)
 ![MIT License](https://img.shields.io/badge/License-MIT-lightgray.svg)
 ![build](https://img.shields.io/badge/Build-passing-green.svg)
 
